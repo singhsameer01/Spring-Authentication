@@ -1,6 +1,5 @@
 package com.s4mz.mailverification.config;
 
-import jakarta.servlet.annotation.WebFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

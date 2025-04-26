@@ -1,6 +1,5 @@
 package com.s4mz.mailverification.config;
 
-
 import com.s4mz.mailverification.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -14,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.security.web.webauthn.authentication.WebAuthnAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -28,7 +26,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final HandlerExceptionResolver handlerExceptionResolver;
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
-
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -61,7 +58,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
-
             filterChain.doFilter(request,response);
         } catch (Exception e) {
             handlerExceptionResolver.resolveException(request,response,null,e);
