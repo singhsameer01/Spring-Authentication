@@ -40,7 +40,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         try {
             final String jwt=authHeader.substring(7);
-            System.out.println("awiudhawd");
             final String userName=jwtService.extractUserName(jwt);
 
             Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
